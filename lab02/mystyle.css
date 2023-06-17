@@ -1,12 +1,18 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background-color:rgb(21,32,43);
     color: white;
     padding: 0;
     margin: 0;
 }
-main h1,h2{
+main h1{
     color: #ff2733;
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
+}
+main h2{
+    color: #ff2733;
 }
 main h3{
     margin: 1rem 1rem;
@@ -42,47 +48,46 @@ nav a{
 nav a:hover{
     color: #ff2733;
 }
-.flex-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    height:300px;
-    margin: 1em 1em;
-    
-    
-}
 .nav-container{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     
 }
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    /* height:400px; */
+    margin: 4rem 1em;
+}
+
 .flex-item1{
     display: flex;
     box-shadow: 1px 1px 5px rgb(21,32,43);
     height: 100%;
-    /* max-width:30%; */
-    margin-right: 1rem;
-    /* align-items: center;
-    justify-content: center; */
+    max-width:30%;
+    margin:0 1rem;
+    align-items: center;
+    justify-content: center;
 
 }
 .flex-item2{
     display: flex;
     flex-direction: column;
-    margin-left: 2rem;
-    margin-right: 2rem ;
-    /* box-shadow: 1px 1px 1px black; */
+    margin: 1rem 2rem;
+
     height: 100%;
-    /* max-width:50%; */
+    max-width:50%;
     padding: 10px;
 
 }
 .flex-item1 img{
-    border: 1px solid rgb(21,32,43);
+    object-fit: contain;
     padding: 0px;
-    /* margin: auto; */
+    width:100%;
+    margin: auto;
     height:100%;
 }
 main{
@@ -92,4 +97,13 @@ main{
 .center{
     margin: 1rem auto;
     width:80%;
+}
+form{
+    margin: 1rem 2rem;
+    /* background-color: #0D1721; */
+    padding: 10px;
+}
+form input{
+    margin-bottom: 10px;
+    max-width: 200px;
 }
