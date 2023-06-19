@@ -113,6 +113,10 @@ main{
     margin: 1rem auto;
     color:white;
 }
+.container1 a{
+    text-decoration: none;
+    color:white;
+}
 .cont-item{
     background-color: #0D1721;
     padding: 40px;
