@@ -40,6 +40,11 @@ body{
     background-color: white;
     grid-column: span 4;
     height:3rem;
+    color: black;
+    text-align: right;
+    padding: 10px;
+    font-size: 1.3em;
+    /* overflow: auto; */
 }
 .calc-container button{
     padding: 10px;

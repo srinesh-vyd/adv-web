@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="mystyle.css">
-    <script src="script.js"></script>
+    
     <title>Calculator</title>
 </head>
 <body>
     <div class="page-container">
         <header>Simple Scientific Calculator</header>
         <div class="calc-container">
-            <div class="display"></div>
-            <button>Sin</button>
-            <button>Cos</button>
-            <button>Tan</button>
-            <button>÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>x</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
-            <button>3</button>
-            <button>2</button>
-            <button>1</button>
-            <button>+</button>
-            <button>.</button>
-            <button>0</button>
-            <button>√</button>
-            <button>Pow</button>
-            <button class="text-color">AC</button>
-            <button class="text-color">CE</button>
-            <button id="equal" class="grid-col-span back-color">=</button>
+            <div class="display" id="display">0</div>
+            <button class="btn" data-action="sin" onclick="document.getElementById('display').innerText =Math.sin(Number(document.getElementById('display').innerText)).toFixed(5)">Sin</button>
+            <button class="btn" data-action="cos" onclick="document.getElementById('display').innerText =Math.cos(Number(document.getElementById('display').innerText)).toFixed(5)">Cos</button>
+            <button class="btn" data-action="tan" onclick="document.getElementById('display').innerText =Math.tan(Number(document.getElementById('display').innerText)).toFixed(5)">Tan</button>
+            <button class="btn" data-action="division" value="/">÷</button>
+            <button class="btn" value="7">7</button>
+            <button class="btn" value="8">8</button>
+            <button class="btn" value="9">9</button>
+            <button class="btn" data-action="multiply" value="*">x</button>
+            <button class="btn" value="4">4</button>
+            <button class="btn" value="5">5</button>
+            <button class="btn" value="6">6</button>
+            <button class="btn" data-action="substract" value="-">-</button>
+            <button class="btn" value="3">3</button>
+            <button class="btn" value="2">2</button>
+            <button class="btn" value="1">1</button>
+            <button class="btn" data-action="add" value="+">+</button>
+            <button class="btn" data-action="decimal" value=".">.</button>
+            <button class="btn" value="0">0</button>
+            <button class="btn" data-action="sqrt" onclick="document.getElementById('display').innerText =Math.sqrt(Number(document.getElementById('display').innerText))">√</button>
+            <button class="btn" data-action="exp" value="**" >Pow</button>
+            <button type="button" data-action="clear" id="ac" class="btn text-color">AC</button>
+            <button id="ce" class="btn text-color">CE</button>
+            <button class="btn">) </button>
+            <button id="equal" data-action="calculate" class="btn back-color">=</button>
             
         </div>
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/expr-eval/0.10.0/bundle.min.js" integrity="sha512-+igwJj4NcCpguyr7R2azSh5Hl3qOsOKo1WAFbDCxXAPoxLqqgHE3zpU/twAxGsrQrC3Q6hnLurBDbYHYLD9SpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js">    </script>
 </html>
