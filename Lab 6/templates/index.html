@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+    <p>Welcome to Password Check</p>
+    <p>Let's see if your password is secure</p>
+    <p>Fill out the form below with a user name and password that has three restraints</p>
+    <ul>
+        <li>Must have a upper case letter somewhere</li>
+        <li>Must have a lower case letter somewhere</li>
+        <li>Must have a number at the end</li>
+    </ul>
+    <form action="/report" method="POST" id="loginform">
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit" id="btn" >Submit form</button>
+    </form>
+
+{% endblock %}
+

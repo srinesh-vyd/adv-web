@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Report</title>
+{% endblock %}
+
+{% block content %}
+<p>Let's see if your password met the requirements</p>
+{% if (upper and lower and length and hasNum): %}
+<p>Your password met all the four requirements</p>
+{% else %}
+<p>Oh no! Looks like you had issues with your password!</p>
+<p>Here are the reuirements you failed</p>
+<ul>
+{% if (not upper): %}
+<li>You did not use an uppercase character</li>
+{% endif %}
+{% if (not lower): %}
+<li>You did not use an Lower case character</li>
+{% endif %}
+{% if (not hasNum): %}
+<li>You did not use a number at the end of your password </li>
+{% endif %}
+{% if (not length): %}
+<li>Your password did not have atleast 8 character</li>
+{% endif %}
+</ul>
+{% endif %}
+{% endblock %}
