@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../static/css/mystyle.css">
+    <title>Sign up Page</title>
+</head>
+<body>
+    <header>
+        <!-- <nav>
+            <ul>
+                <li><a href="{{url_for('login')}}">Home</a></li>
+                <li><a href="{{url_for('signup')}}">Sign Up</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="{{url_for('signup')}}", method="POST">
+            <p>Create your account. It's free and only takes a minute</p>
+            <input type="text" name="firstname" placeholder="First Name" required>
+            <input type="text" name="lastname" placeholder="Last Name" required><br>
+            <input type="text" name="email" placeholder="Username" id="email" required><br>
+            
+            <p class="error" id="usernameAvailability" style="display: none;"> </p>
+            
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required><br>
+            
+            <p class="error" id="pwdmismatch" style="display: none;">Passwords do not match. Try again</p>
+            <p  id="pwdmatch" style="display: none; color:green">Passwords match</p>
+            <input id="registerbtn" type="submit" value="Register Now" disabled>
+            <p>Already have an account <a href="{{url_for('login')}}">Sign in</a></p>
+        </form>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        // Function to check if the username already exists
+        function checkUsernameAvailability() {
+            var username = $('#email').val();
+            $.ajax({
+                type: 'POST',
+                url: '/check_username',
+                data: { 'username': username },
+                success: function (response) {
+                    if (response.exists) {
+                        $('#usernameAvailability').text('Username is already taken').css('color', 'red');
+                    } else {
+                        $('#usernameAvailability').text('Username is available').css('color', 'green');
+                    }
+                }
+            });
+        }
+
+        $('#email').on('input', function () {
+        if ($('#email').val() !== ''){
+        $('#usernameAvailability').css('display', 'block');
+        }
+        else{
+            $('#usernameAvailability').css('display', 'none');
+        }
+            $('#usernameAvailability').text('Checking username availability...').css('color', 'black');
+            checkUsernameAvailability();
+        });
+    });
+
+function matchpassword(){
+    var pwd = document.getElementById('password').value;
+    var confirmpassword = document.getElementById('confirmpassword').value;
+
+    if (pwd !== confirmpassword){
+        document.getElementById('pwdmismatch').style.display = 'block';
+        document.getElementById('pwdmatch').style.display = 'none';
+        document.getElementById('registerbtn').disabled = true
+    }
+    else{
+        document.getElementById('pwdmismatch').style.display = 'none';
+        document.getElementById('pwdmatch').style.display = 'block';
+        document.getElementById('registerbtn').disabled = false
+    }
+}
+document.getElementById('password').addEventListener("input",matchpassword)
+document.getElementById('confirmpassword').addEventListener("input",matchpassword)
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/mystyle.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <header>
+        <!-- <nav>
+            <ul>
+                <li><a href="{{url_for('login')}}">Home</a></li>
+                <li><a href="{{url_for('signup')}}">Sign Up</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <div class="container">
+        
+        <form method="POST" action="{{url_for('login')}}">
+            <h3>Login to Your Account</h3>
+            
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input id="loginbtn" type="submit" value="Login">
+            {% if error:%}
+            <p class="error">Invalid Credentials. Try again</p>
+            {% endif %}
+            <p>Don't have an Account Yet? <a href="{{url_for('signup')}}">Sign Up</a></p>
+        </form>
+    </div>
+</body>
+</html>
